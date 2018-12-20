@@ -16,12 +16,14 @@
 """
 
 import logging
+import json
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.utils import is_request_type, is_intent_name
 from ask_sdk_core.handler_input import HandlerInput
+from ask_sdk_core.serialize import DefaultSerializer
 
-from ask_sdk_model import Response
+from ask_sdk_model import (Response, RequestEnvelope)
 from ask_sdk_model.interfaces.gadget_controller import SetLightDirective
 from ask_sdk_model.interfaces.game_engine import (
     StartInputHandlerDirective, StopInputHandlerDirective)
@@ -37,6 +39,8 @@ sb = SkillBuilder()
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
+serializer = DefaultSerializer()
 
 # Define the start input handler directive
 
@@ -317,7 +321,7 @@ def session_ended_request_handler(handler_input):
     return handler_input.response_builder.response
 
 
-@sb.request_handler(can_handle_func=lambda input: True)
+@sb.request_handler(can_handle_func=is_request_type("GameEngine.InputHandlerEvent"))
 def game_engine_input_handler(handler_input):
     """Handler for all game engine events."""
     # type: (HandlerInput) -> Response
@@ -420,7 +424,7 @@ def log_request(handler_input):
     """Request Logger"""
     # type: (HandlerInput) -> None
     logger.info("==Request==")
-    logger.info(handler_input.request_envelope.to_str())
+    logger.info(serializer.serialize(handler_input.request_envelope))
 
 
 @sb.global_response_interceptor()
@@ -428,7 +432,7 @@ def log_response(handler_input, response):
     """Response logger."""
     # type: (HandlerInput, Response) -> None
     logger.info("==Response==")
-    logger.info(response.to_str())
+    logger.info(serializer.serialize(response))
     logger.info("==Session Attributes==")
     logger.info(handler_input.attributes_manager.session_attributes)
 
