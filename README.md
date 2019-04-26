@@ -3,7 +3,7 @@ Build a Simple Echo Buttons Skill in ASK Python SDK (using Decorators)
 
 <img src="https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/quiz-game/header._TTH_.png" />
 
-**Important: The Gadgets Skill API is in beta and is subject to change at any time without notice. We welcome your feedback.**
+**Important: The Echo Buttons Skill API is in beta and is subject to change at any time without notice. We welcome your feedback.**
 
 These instructions show how to create a simple skill called Hello Buttons. This skill demonstrates how to send directives to, and receive events from, [Echo Buttons](https://www.amazon.com/Echo-Buttons-Alexa-Gadget-Pack/dp/B072C4KCQH). These direction assume you have some familiarity with
 Python (or a similar programming language) and the Alexa Skills Kit.
@@ -49,7 +49,7 @@ Additional Resources
 -  [Official Alexa Skills Kit Python SDK](https://pypi.org/project/ask-sdk/)
 -  [Official Alexa Skills Kit Python SDK Docs](https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/)
 -  [Official Alexa Skills Kit Docs](https://developer.amazon.com/docs/ask-overviews/build-skills-with-the-alexa-skills-kit.html)
-- [Official Alexa Gadgets Documentation](https://developer.amazon.com/alexa/alexa-gadgets) - The Echo Buttons are the first Alexa Gadget
+-  [Official Echo Buttons Skill API Documentation](https://developer.amazon.com/alexa/alexa-gadgets/echo-buttons-skill-api) - The Echo Buttons were the first Alexa Gadget
 
 <p align="center">
   <br/>

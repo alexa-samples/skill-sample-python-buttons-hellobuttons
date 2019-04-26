@@ -235,7 +235,7 @@ def launch_request_handler(handler_input):
 
     # Preserve the originatingRequestId.  We'll use this to stop the
     # InputHandler later.
-    # See the Note at https://developer.amazon.com/docs/gadget-skills/receive-echo-button-events.html#start
+    # See the Note at https://developer.amazon.com/docs/echo-button-skills/receive-echo-button-events.html#start
     session_attr["current_input_handler_id"] = handler_input.request_envelope.request.request_id
 
     # On launch, this skill will immediately set up the InputHandler to
@@ -244,7 +244,7 @@ def launch_request_handler(handler_input):
     # pressed and when they're released.
     # After 30 seconds, the Skill will receive the timeout event.
     # For more details on InputHandlers, see
-    # https://developer.amazon.com/docs/gadget-skills/define-echo-button-events.html
+    # https://developer.amazon.com/docs/echo-button-skills/define-echo-button-events.html
     response_builder.add_directive(build_start_input_handler_directive())
 
     # If the buttons are awake before the Skill starts, the Skill can send
@@ -265,7 +265,7 @@ def launch_request_handler(handler_input):
     # voice intent.
     # Never set should_end_session to true if you're expecting InputHandler
     # events Because you'll lose the session!
-    # See https://developer.amazon.com/docs/gadget-skills/receive-voice-input.html#types
+    # See https://developer.amazon.com/docs/echo-button-skills/receive-voice-input.html#types
     response_builder.set_should_end_session(None)
 
     speech_text = ("Welcome to the Gadgets Test Skill. "
