@@ -30,10 +30,6 @@
     },
     "apis": {
       "custom": {
-        "endpoint": {
-          "sourceDir": "lambda/py",
-          "uri": "ask-custom-hello-buttons-python"
-        },
         "interfaces": [
           {
             "type": "GAME_ENGINE"
